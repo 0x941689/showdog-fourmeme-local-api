@@ -1,0 +1,177 @@
+{
+  "customButtonsV2": {
+    "bsc": [
+      {
+        "name": "余额查询",
+        "url": "",
+        "enabled": true,
+        "color": "#1DA1F2",
+        "trigger": "backend_request",
+        "request": {
+          "method": "GET",
+          "urlTemplate": "http://127.0.0.1:8787/balances?chain=bsc&walletId=1&token={address}&dp=5",
+          "headers": [],
+          "bodyTemplate": "",
+          "rules": [
+            {
+              "messageTemplate": "[{walletId}] 余额：BNB: {bnb_balance}(${bnb_usd_value}) / {token_symbol}: {token_balance}(${token_usd_value})",
+              "backgroundColor": "#00BA7C",
+              "textColor": "#FFFFFF",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 200
+                }
+              ]
+            },
+            {
+              "messageTemplate": "查询失败！",
+              "backgroundColor": "#F4212E",
+              "textColor": "#FFFFFF",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 400
+                }
+              ]
+            }
+          ]
+        },
+        "id": "btn_1762709124658_i7zqvwu9l",
+        "pos": 920,
+        "row": 0
+      },
+      {
+        "name": "[1]清仓",
+        "url": "",
+        "enabled": true,
+        "color": "#F4212E",
+        "trigger": "backend_request",
+        "request": {
+          "method": "GET",
+          "urlTemplate": "http://127.0.0.1:8787/sell?chain=bsc&token={address}&percent=100&gasprice=0.08&gaslimit=500000&slippage=5&autoApprove=true&wait=true&walletId=1&dp=5",
+          "headers": [],
+          "bodyTemplate": "",
+          "rules": [
+            {
+              "messageTemplate": "[{walletId}] 交易提交成功!",
+              "backgroundColor": "#00BA7C",
+              "textColor": "#FFFFFF",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 200
+                }
+              ]
+            },
+            {
+              "messageTemplate": "[1] {message}",
+              "backgroundColor": "#F4212E",
+              "textColor": "#000000",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 400
+                }
+              ]
+            }
+          ]
+        },
+        "id": "btn_1762719223795_vu0ea66dc",
+        "pos": 70,
+        "row": 1
+      },
+      {
+        "name": "[1]买 0.0001BNB",
+        "url": "",
+        "enabled": true,
+        "color": "#00BA7C",
+        "trigger": "backend_request",
+        "request": {
+          "method": "GET",
+          "urlTemplate": "http://127.0.0.1:8787/buy?chain=bsc&token={address}&bnb_cost=0.0001&gasprice=0.08&gaslimit=500000&slippage=5&autoApprove=true&wait=true&walletId=1&dp=5",
+          "headers": [],
+          "bodyTemplate": "",
+          "rules": [
+            {
+              "messageTemplate": "[{walletId}] 交易提交成功!",
+              "backgroundColor": "#00BA7C",
+              "textColor": "#000000",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 200
+                }
+              ]
+            },
+            {
+              "messageTemplate": "[1] {message}",
+              "backgroundColor": "#F4212E",
+              "textColor": "#000000",
+              "durationMs": 3000,
+              "conditions": [
+                {
+                  "statusCode": 400
+                }
+              ]
+            }
+          ]
+        },
+        "id": "btn_1762794996951_1w72r6jtu",
+        "pos": 114,
+        "row": 0
+      },
+      {
+        "name": "swap",
+        "url": "",
+        "enabled": true,
+        "color": "#1DA1F2",
+        "trigger": "open_swap_window",
+        "swap": {
+          "quoteBuy": {
+            "method": "GET",
+            "urlTemplate": "http://127.0.0.1:8787/quote/buy?chain=bsc&token={address}&bnb_cost={{input.bnb}}&slippage={{input.slippage}}&walletId=1&marketcap_unit=cn",
+            "assignments": []
+          },
+          "quoteSell": {
+            "method": "GET",
+            "urlTemplate": "http://127.0.0.1:8787/quote/sell?chain=bsc&token={address}&amount={{input.token}}&basetoken_decimals={{var.basetoken_decimals}}&slippage={{input.slippage}}&walletId=1&marketcap_unit=cn",
+            "assignments": []
+          },
+          "quoteRefreshEnabled": true,
+          "initialInputs": {
+            "bnb": "1",
+            "slippage": 10,
+            "maxReservedBnb": 0.001
+          },
+          "buy": {
+            "method": "GET",
+            "urlTemplate": "http://127.0.0.1:8787/swap/buy?chain=bsc&token={{var.token}}&market=internal&bnb_cost_wei={{var.bnb_cost_wei}}&min_token_amount_wei={{var.min_token_amount_wei}}&walletId=1&nonce={{var.nonce}}&allowance_fourmeme={{var.allowance_fourmeme}}&allowance_router={{var.allowance_router}}&quotetoken_address={{var.quotetoken_address}}&use_three_path={{var.use_three_path}}&path_buy={{var.path_buy}}&gasprice=0.08&gaslimit=500000"
+          },
+          "sell": {
+            "method": "GET",
+            "urlTemplate": "http://127.0.0.1:8787/swap/sell?chain=bsc&token={{var.token}}&market={{var.market}}&token_amount_wei={{var.token_amount_wei}}&min_bnb_amount_wei={{var.min_bnb_amount_wei}}&walletId=1&nonce={{var.nonce}}&allowance_fourmeme={{var.allowance_fourmeme}}&allowance_router={{var.allowance_router}}&quotetoken_address={{var.quotetoken_address}}&use_three_path={{var.use_three_path}}&path_sell={{var.path_sell}}&gasprice=0.08&gaslimit=500000"
+          },
+          "txStatus": {
+            "method": "GET",
+            "urlTemplate": "http://127.0.0.1:8787/tx/status?chain={chain}&hash={{tx.hash}}"
+          }
+        },
+        "id": "btn_1763268326990_jj44l5yqy",
+        "pos": 915,
+        "row": 1,
+        "request": {
+          "method": "GET",
+          "urlTemplate": "",
+          "headers": [],
+          "bodyTemplate": "",
+          "rules": []
+        }
+      }
+    ],
+    "sol": []
+  },
+  "customButtonAreaRows": {
+    "bsc": 2
+  }
+}

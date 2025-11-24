@@ -1,0 +1,61 @@
+{
+  "name": "fourmeme-parser-sdk",
+  "version": "1.0.1",
+  "description": "Fourmeme Parser SDK - TypeScript Version (Internal Trading Only)",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "check": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "start": "node launch.js",
+    "start:dev": "tsx src/api/server.ts",
+    "start:api": "tsx src/api/server.ts",
+    "start:client": "node script/interactive-api-client.js",
+    "quote:compare": "node script/quote-compare.js",
+    "cleanup:src": "tsx scripts/cleanup_source.ts",
+    "build:exe:win": "pkg --targets node20-win-x64 --output build/win-x64/showdog-api.exe server-direct.js"
+  },
+  "keywords": [
+    "fourmeme",
+    "blockchain",
+    "trading",
+    "sdk",
+    "bsc",
+    "internal-trading"
+  ],
+  "author": "Fourmeme Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x941689/showdog-fourmeme-local-api.git"
+  },
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ethers": "^5.7.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.20.6",
+    "typescript": "^5.0.0",
+    "pkg": "^5.8.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "pkg": {
+    "assets": [
+      "dist/**/*",
+      "showdog-token-config.json"
+    ]
+  }
+}

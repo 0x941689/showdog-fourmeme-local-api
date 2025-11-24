@@ -1,0 +1,349 @@
+[
+	{
+		"inputs": [],
+		"name": "FOUR_MEME_CHECKER",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"name": "getFourmemeTokenInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "symbol",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "decimals",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalSupply",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isFourMemeToken",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenInfoAggregator5.BasicTokenInfo",
+						"name": "basic",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "version",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "tokenManager",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "quote",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lastPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "usdPrice",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tradingFeeRate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "minTradingFee",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "launchTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "tradingStatus",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct TokenInfoAggregator5.PlatformInfo",
+						"name": "platform",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "offers",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "maxOffers",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "funds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "maxFunds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "liquidityAdded",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "offerPercentage",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fundsPercentage",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TokenInfoAggregator5.TradingInfo",
+						"name": "trading",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "quoteName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "quoteSymbol",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "quoteDecimals",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "poolTokenBalance",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "poolQuoteBalance",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isXMode",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "template",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "pair",
+										"type": "address"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "token",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "reserve",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct TokenInfoAggregator5.TokenReserveKV",
+										"name": "reserve0",
+										"type": "tuple"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "token",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "reserve",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct TokenInfoAggregator5.TokenReserveKV",
+										"name": "reserve1",
+										"type": "tuple"
+									}
+								],
+								"internalType": "struct TokenInfoAggregator5.V2PairInfo",
+								"name": "v2TokenQuotePair",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "pair",
+										"type": "address"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "token",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "reserve",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct TokenInfoAggregator5.TokenReserveKV",
+										"name": "reserve0",
+										"type": "tuple"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "token",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "reserve",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct TokenInfoAggregator5.TokenReserveKV",
+										"name": "reserve1",
+										"type": "tuple"
+									}
+								],
+								"internalType": "struct TokenInfoAggregator5.V2PairInfo",
+								"name": "v2WbnbQuotePair",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct TokenInfoAggregator5.PoolInfo",
+						"name": "pool",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct TokenInfoAggregator5.FourmemeTokenInfo",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bnbAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "tryBuyWithBNB",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "estimatedAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amountMsgValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenAmount",
+				"type": "uint256"
+			}
+		],
+		"name": "trySellToBNB",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "estimatedBNB",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
