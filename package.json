@@ -1,6 +1,6 @@
 {
   "name": "fourmeme-parser-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Fourmeme Parser SDK - TypeScript Version (Internal Trading Only)",
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
