@@ -1,4 +1,4 @@
-name: Build & Release Windows x64 EXE
+name: Release (Source Only)
 
 permissions:
   contents: write
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '22.5.1'
 
       - name: Install dependencies
         run: |
@@ -26,34 +26,21 @@ jobs:
       - name: Build TypeScript to dist
         run: |
           npm run build
-      - name: Ensure output directory exists
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Force -Path build/win-x64 | Out-Null
-
-      - name: Build Windows x64 EXE
-        run: |
-          npm run build:exe:win
-
-      - name: Validate EXE exists
-        shell: pwsh
-        run: |
-          if (!(Test-Path 'build/win-x64/showdog-api.exe')) {
-            Write-Error 'Executable not found: build/win-x64/showdog-api.exe'
-          }
-
-      - name: Upload artifact (exe)
-        uses: actions/upload-artifact@v4
-        with:
-          name: win-x64-exe
-          path: build/win-x64/showdog-api.exe
-
-      - name: Upload Release Asset
+      - name: Create Release (no assets)
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          fail_on_unmatched_files: true
-          files: |
-            build/win-x64/showdog-api.exe
+          generate_release_notes: true
+          body: |
+            Windows 使用说明（源码运行）
+
+            1. 在 Release 页面下载 “Source code (zip)”。
+            2. 在 Windows 电脑上解压到任意目录，例如 `C:\apps\showdog-api`。
+            3. 安装 Node.js 22.5.1（或 18+）。
+            4. 在解压目录中将 `.env.example` 复制为 `.env`，填写你需要的配置（例如 `PORT`、RPC、白名单等）。
+            5. 双击 `run.bat` 即可启动，或在 PowerShell 中执行 `node run.js`。
+            6. 若系统弹出防火墙提示，请选择允许本应用访问网络。
+
+            此版本不附带可执行文件，仅保留默认的两个源代码资源（zip、tar.gz）。
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
