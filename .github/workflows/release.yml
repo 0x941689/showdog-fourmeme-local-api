@@ -20,6 +20,13 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
+      - name: Build TypeScript to dist
+        run: |
+          npm run build
+      - name: Ensure output directory exists
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path build/win-x64 | Out-Null
 
       - name: Build Windows x64 EXE
         run: |
