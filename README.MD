@@ -88,7 +88,4 @@
 配置文件：`showdog-token-config.json`
 
 秀狗推特监控客户端使用了此项目API的示例视频
-<video controls preload="none" poster="https://download.showdog.pro/static/download/docs/3cover.jpg" style="width: 640px; max-width: 100%; height: auto;">
-  <source src="https://download.showdog.pro/static/download/docs/3.mp4" type="video/mp4">
-  您的浏览器不支持 video 标签。
-</video>
+https://download.showdog.pro/static/download/docs/3.mp4
