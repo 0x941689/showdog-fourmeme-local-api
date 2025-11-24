@@ -89,3 +89,4 @@
 
 秀狗推特监控客户端使用了此项目API的示例视频
 https://download.showdog.pro/static/download/docs/3.mp4
+官方电报群：https://t.me/showdog_x
