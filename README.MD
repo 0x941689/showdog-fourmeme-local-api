@@ -86,3 +86,9 @@
 
 秀狗推特监控 PC 端支持导入配置文件对接钱包端，配置里使用 `http://127.0.0.1:8787` 为默认 URL 也可视情况自行替换。
 配置文件：`showdog-token-config.json`
+
+秀狗推特监控客户端使用了此项目API的示例视频
+<video controls preload="none" poster="https://download.showdog.pro/static/download/docs/3cover.jpg" style="width: 640px; max-width: 100%; height: auto;">
+  <source src="https://download.showdog.pro/static/download/docs/3.mp4" type="video/mp4">
+  您的浏览器不支持 video 标签。
+</video>
